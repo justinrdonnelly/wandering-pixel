@@ -23,13 +23,13 @@ class Extension {
   }
 
   _changeDirection() {
-    //log("in refresh");
+    //log("in _changeDirection");
     //let [xPos, yPos] = this.dot.get_position();
     //log(xPos);
     let newX = (this.goLeft) ? 0 : this.monitor.width - this.size;
 
     if (this.dot !== null) {
-      //log("in refresh (this.dot not null)");
+      //log("in _changeDirection (this.dot not null)");
       //let [xPos, yPos] = this.dot.get_position();
       //log(xPos);
       // for some reason, the first time (and only the first time) this is called, x ends up at 0 at the end
@@ -40,7 +40,7 @@ class Extension {
         mode: Clutter.AnimationMode.LINEAR
       });
       this.goLeft = !this.goLeft;
-      //log("in refresh - done with this.dot.ease");
+      //log("in _changeDirection - done with this.dot.ease");
       //[xPos, yPos] = this.dot.get_position();
       //log(xPos);
       this._timeout = Mainloop.timeout_add_seconds(this.delay, Lang.bind(this, this._changeDirection));
