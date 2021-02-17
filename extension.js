@@ -15,8 +15,8 @@ class Extension {
     //log("entering constructor");
     this.monitor = Main.layoutManager.primaryMonitor;
     this.size = 1;
-    this.delay = 5;
-    this.goLeft = true; // whether or not to go left next time we move
+    this.delay = 60;
+    this.goLeft = null; // whether or not to go left next time we move
     this.dot = null;
     this._timeout = null;
     //log("exiting constructor");
@@ -32,11 +32,10 @@ class Extension {
       //log("in _changeDirection (this.dot not null)");
       //let [xPos, yPos] = this.dot.get_position();
       //log(xPos);
-      // for some reason, the first time (and only the first time) this is called, x ends up at 0 at the end
       this.dot.ease({
         x: newX,
         //opacity: 100,
-        duration: 30000,
+        duration: this.delay * 1000,
         mode: Clutter.AnimationMode.LINEAR
       });
       this.goLeft = !this.goLeft;
@@ -49,9 +48,10 @@ class Extension {
 
   enable() {
     //log("entering enable");
+    this.goLeft = false; // start at left, so go right first
     this.dot = new St.Bin({
       style: 'background-color: #101010', // #101010 - very slightly less dark than the top bar
-      x: (this.monitor.width - this.size) / 2, // half way across
+      x: 0, //start at left
       y: 0,
       reactive: false,
       can_focus: false,
@@ -64,7 +64,9 @@ class Extension {
       affectsInputRegion: true,
       trackFullscreen: true,
     });
-    this._changeDirection();
+
+    // if we don't wait, for some reason the first call to _changeDirection doesn't seem to respect duration and the pixel won't move for the entire first iteration
+    this._timeout = Mainloop.timeout_add_seconds(1, Lang.bind(this, this._changeDirection));
     //log("exiting enable");
   }
 
