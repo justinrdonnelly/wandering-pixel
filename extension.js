@@ -14,33 +14,33 @@ class Extension {
   constructor() {
     //log("entering constructor");
     this.monitor = Main.layoutManager.primaryMonitor;
-    this.size = 1;
-    this.delay = 60;
-    this.goLeft = null; // whether or not to go left next time we move
-    this.dot = null;
-    this._timeout = null;
+    this.size = 1; // size of the pixel
+    this.delay = 60; // how many seconds to take for the pixel to move across the entire screen
+    this.goLeft = null; // whether or not to go left next time we change directions
+    this.pixel = null; // the pixel
+    this._timeout = null; // timeout for when to change directions
     //log("exiting constructor");
   }
 
   _changeDirection() {
     //log("in _changeDirection");
-    //let [xPos, yPos] = this.dot.get_position();
+    //let [xPos, yPos] = this.pixel.get_position();
     //log(xPos);
     let newX = (this.goLeft) ? 0 : this.monitor.width - this.size;
 
-    if (this.dot !== null) {
-      //log("in _changeDirection (this.dot not null)");
-      //let [xPos, yPos] = this.dot.get_position();
+    if (this.pixel !== null) {
+      //log("in _changeDirection (this.pixel not null)");
+      //let [xPos, yPos] = this.pixel.get_position();
       //log(xPos);
-      this.dot.ease({
+      this.pixel.ease({
         x: newX,
         //opacity: 100,
         duration: this.delay * 1000,
         mode: Clutter.AnimationMode.LINEAR
       });
       this.goLeft = !this.goLeft;
-      //log("in _changeDirection - done with this.dot.ease");
-      //[xPos, yPos] = this.dot.get_position();
+      //log("in _changeDirection - done with this.pixel.ease");
+      //[xPos, yPos] = this.pixel.get_position();
       //log(xPos);
       this._timeout = Mainloop.timeout_add_seconds(this.delay, Lang.bind(this, this._changeDirection));
     }
@@ -49,7 +49,7 @@ class Extension {
   enable() {
     //log("entering enable");
     this.goLeft = false; // start at left, so go right first
-    this.dot = new St.Bin({
+    this.pixel = new St.Bin({
       style: 'background-color: #101010', // #101010 - very slightly less dark than the top bar
       x: 0, //start at left
       y: 0,
@@ -60,7 +60,7 @@ class Extension {
       height: this.size,
     });
 
-    Main.layoutManager.addChrome(this.dot, {
+    Main.layoutManager.addChrome(this.pixel, {
       affectsInputRegion: true,
       trackFullscreen: true,
     });
@@ -76,8 +76,8 @@ class Extension {
       Mainloop.source_remove(this._timeout);
       this._timeout = null;
     }
-    Main.layoutManager.removeChrome(this.dot);
-    this.dot = null;
+    Main.layoutManager.removeChrome(this.pixel);
+    this.pixel = null;
     //log("exiting disable");
   }
 }
