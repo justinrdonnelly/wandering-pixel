@@ -33,10 +33,7 @@ class Extension {
       //let [xPos, yPos] = this.pixel.get_position();
       //log(xPos);
       this.pixel.ease({
-        x: newX,
-        //opacity: 100,
-        duration: this.delay * 1000,
-        mode: Clutter.AnimationMode.LINEAR
+        x: newX
       });
       this.goLeft = !this.goLeft;
       //log("in _changeDirection - done with this.pixel.ease");
@@ -59,6 +56,8 @@ class Extension {
       width: this.size,
       height: this.size,
     });
+    this.pixel.set_easing_duration(this.delay * 1000);
+    this.pixel.set_easing_mode(Clutter.AnimationMode.LINEAR);
 
     Main.layoutManager.addChrome(this.pixel, {
       affectsInputRegion: true,
