@@ -1,6 +1,6 @@
 {
   "name": "Wandering Pixel",
-  "description": "Slide 1 pixel back and forth in the top bar as a workaround for gnome bug 1516.",
+  "description": "Slide 1 pixel back and forth in the top bar as a workaround for various bugs in GNOME Shell and/or Mutter.",
   "uuid": "wandering-pixel@justinrdonnelly.github.com",
   "shell-version": [
     "3.38"
