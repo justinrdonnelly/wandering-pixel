@@ -4,6 +4,8 @@
 
 /* exported init */
 
+'use strict';
+
 const Lang = imports.lang;
 const Main = imports.ui.main;
 const Mainloop = imports.mainloop;
