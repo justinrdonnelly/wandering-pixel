@@ -25,29 +25,23 @@ class Extension {
   }
 
   _changeDirection() {
-    //log("in _changeDirection");
-    //let [xPos, yPos] = this.pixel.get_position();
-    //log(xPos);
+    //log("entering _changeDirection");
     let newX = (this.goLeft) ? 0 : this.monitor.width - this.size;
 
     if (this.pixel !== null) {
-      //log("in _changeDirection (this.pixel not null)");
-      //let [xPos, yPos] = this.pixel.get_position();
-      //log(xPos);
       this.pixel.ease({
         x: newX
       });
       this.goLeft = !this.goLeft;
-      //log("in _changeDirection - done with this.pixel.ease");
-      //[xPos, yPos] = this.pixel.get_position();
-      //log(xPos);
       this._timeout = Mainloop.timeout_add_seconds(this.delay, Lang.bind(this, this._changeDirection));
     }
+    //log("exiting _changeDirection");
   }
 
   enable() {
     //log("entering enable");
     this.goLeft = false; // start at left, so go right first
+    // instantiate a container, but we won't be putting an actor in it
     this.pixel = new St.Bin({
       style: 'background-color: #101010', // #101010 - very slightly less dark than the top bar
       x: 0, //start at left
