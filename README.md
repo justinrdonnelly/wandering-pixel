@@ -18,4 +18,4 @@ I've never written a GNOME Shell extension before and really just fumbled throug
 1. Confirm the Wandering Pixel extension is enabled.
 2. Confirm GNOME animations are enabled.
 3. Confirm GNOME animations are working.
-   - Test another extension that uses animations (e.g. Example 7 from [here](https://gitlab.com/justperfection.channel/how-to-create-a-gnome-extension-documentation/-/tree/master/Examples)). Note the youtube video that demonstrates the difference when animations are enabled.
+   - Test another extension that uses animations (e.g. Example 7 from [here](https://gitlab.com/justperfection.channel/how-to-create-a-gnome-extension-documentation/-/tree/master/Examples) - note the youtube video that demonstrates the difference when animations are enabled).
