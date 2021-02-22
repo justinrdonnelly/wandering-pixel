@@ -13,3 +13,9 @@ I've never written a GNOME Shell extension before and really just fumbled throug
 1. Download the extension and copy it (or create a symlink) to your GNOME Shell extensions directory: `cp -r <path-to-extension-directory> ~/.local/share/gnome-shell/extensions/wandering-pixel@justinrdonnelly.github.com`
 2. Restart GNOME Shell: On X11: `Alt`+`F2`&rarr;`r`&rarr;`Enter`; On Wayland: Log out and back in
 3. Enable the extension via [GNOME Tweaks](https://wiki.gnome.org/Apps/Tweaks), [GNOME Extensions](https://gitlab.gnome.org/GNOME/gnome-shell/-/tree/master/subprojects/extensions-app), or command line: `gnome-extensions enable wandering-pixel@justinrdonnelly.github.com`
+
+## Troubleshooting
+1. Confirm the Wandering Pixel extension is enabled.
+2. Confirm GNOME animations are enabled.
+3. Confirm GNOME animations are working.
+   - Test another extension that uses animations (e.g. Example 7 from [here](https://gitlab.com/justperfection.channel/how-to-create-a-gnome-extension-documentation/-/tree/master/Examples)). Note the youtube video that demonstrates the difference when animations are enabled.
