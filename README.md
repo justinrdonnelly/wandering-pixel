@@ -1,5 +1,11 @@
 # Wandering Pixel
-Wandering Pixel is a GNOME Shell extension that moves 1 pixel back and forth along the top of the screen. The purpose of this is to work around [Mutter issue 1516](https://gitlab.gnome.org/GNOME/mutter/-/issues/1516) and/or [GNOME Shell issue 3369](https://gitlab.gnome.org/GNOME/gnome-shell/-/issues/3369), by forcing part of the screen to be redrawn constantly. It's 1 pixel, and it's only slightly less dark than the top bar, so you should never notice it.
+Wandering Pixel is a GNOME Shell extension that moves 1 pixel back and forth along the top of the screen. The purpose of this is to work around any of several issues in GNOME Shell and/or Mutter, by forcing part of the screen to be redrawn constantly. It's 1 pixel, and it's only slightly less dark than the top bar, so you should never notice it.
+
+Bugs that can be worked around by Wandering Pixel:
+- [GNOME Shell issue 3369](https://gitlab.gnome.org/GNOME/gnome-shell/-/issues/3369)
+- [Mutter issue 1516](https://gitlab.gnome.org/GNOME/mutter/-/issues/1516)
+- [Mutter issue 1561](https://gitlab.gnome.org/GNOME/mutter/-/issues/1561)
+- More? If you are aware of others, please let me know by opening an issue!
 
 I've never written a GNOME Shell extension before and really just fumbled through this. PRs to improve it are welcome!
 
