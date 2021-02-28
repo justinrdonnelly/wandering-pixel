@@ -10,6 +10,9 @@ Bugs that can be worked around by Wandering Pixel:
 I've never written a GNOME Shell extension before and really just fumbled through this. PRs to improve it are welcome!
 
 ## Installation
+The recommended installation method is to install via the official [GNOME Extension page](https://extensions.gnome.org/extension/4028/wandering-pixel/).
+
+For a manual installation, follow these instructions:
 1. Download the extension and copy it (or create a symlink) to your GNOME Shell extensions directory: `cp -r <path-to-extension-directory> ~/.local/share/gnome-shell/extensions/wandering-pixel@justinrdonnelly.github.com`
 2. Restart GNOME Shell: On X11: `Alt`+`F2`&rarr;`r`&rarr;`Enter`; On Wayland: Log out and back in
 3. Enable the extension via [GNOME Tweaks](https://wiki.gnome.org/Apps/Tweaks), [GNOME Extensions](https://gitlab.gnome.org/GNOME/gnome-shell/-/tree/master/subprojects/extensions-app), or command line: `gnome-extensions enable wandering-pixel@justinrdonnelly.github.com`
