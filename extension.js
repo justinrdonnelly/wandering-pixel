@@ -11,9 +11,10 @@ class Extension {
     // instantiate the extension
     constructor() {
         //log("entering constructor");
-        this._monitor = Main.layoutManager.primaryMonitor;
         this._size = 1; // size of the pixel
         this._delay = 60; // how many seconds to take for the pixel to move across the entire screen
+        this._color = "101010"; // 101010 - very slightly less dark than the top bar (on Ubuntu 20.10)
+        this._monitor = Main.layoutManager.primaryMonitor;
         this._goLeft = null; // whether or not to go left next time we change directions
         this._pixel = null; // the pixel
         this._timeout = null; // timeout for when to change directions
@@ -26,7 +27,7 @@ class Extension {
         this._goLeft = false; // start at left, so go right first
         // instantiate a container, but we won't be putting an actor in it
         this._pixel = new St.Bin({
-            style: 'background-color: #101010', // #101010 - very slightly less dark than the top bar
+            style: 'background-color: #' + this._color,
             x: 0, //start at left
             y: 0,
             reactive: false,
