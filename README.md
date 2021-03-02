@@ -3,6 +3,7 @@ Wandering Pixel is a GNOME Shell extension that moves 1 pixel back and forth alo
 
 Bugs that can be worked around by Wandering Pixel:
 - [GNOME Shell issue 3369](https://gitlab.gnome.org/GNOME/gnome-shell/-/issues/3369)
+- [Mutter issue 1471](https://gitlab.gnome.org/GNOME/mutter/-/issues/1471)
 - [Mutter issue 1516](https://gitlab.gnome.org/GNOME/mutter/-/issues/1516)
 - [Mutter issue 1561](https://gitlab.gnome.org/GNOME/mutter/-/issues/1561)
 - More? If you are aware of others, please let me know by opening an issue!
