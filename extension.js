@@ -12,7 +12,7 @@ class Extension {
     constructor() {
         //log("entering constructor");
         this._size = 1; // size of the pixel
-        this._delay = 60; // how many seconds to take for the pixel to move across the entire screen
+        this._delay = 1; // how many seconds to take for the pixel to move across the entire screen
         this._color = "101010"; // 101010 - very slightly less dark than the top bar (on Ubuntu 20.10)
         this._monitor = Main.layoutManager.primaryMonitor;
         this._goLeft = null; // whether or not to go left next time we change directions
