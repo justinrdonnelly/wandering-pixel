@@ -18,6 +18,11 @@ For a manual installation, follow these instructions:
 2. Restart GNOME Shell: On X11: `Alt`+`F2`&rarr;`r`&rarr;`Enter`; On Wayland: Log out and back in
 3. Enable the extension via [GNOME Tweaks](https://wiki.gnome.org/Apps/Tweaks), [GNOME Extensions](https://gitlab.gnome.org/GNOME/gnome-shell/-/tree/master/subprojects/extensions-app), or command line: `gnome-extensions enable wandering-pixel@justinrdonnelly.github.com`
 
+## Limitations and Side Effects
+- Does not work when applications are in full-screen mode. This prevents GNOME animations.
+- Increases CPU usage.
+- Reduces frame rates.
+
 ## Troubleshooting
 1. Confirm the Wandering Pixel extension is enabled.
 2. Confirm GNOME animations are enabled.
