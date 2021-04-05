@@ -2,6 +2,11 @@
   "description": "Slide 1 pixel back and forth in the top bar as a workaround for various bugs in GNOME Shell and/or Mutter.",
   "name": "Wandering Pixel",
   "shell-version": [
+    "3.28",
+    "3.30",
+    "3.32",
+    "3.34",
+    "3.36",
     "3.38",
     "40.0"
   ],

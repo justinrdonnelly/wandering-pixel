@@ -1,6 +1,7 @@
 'use strict';
 
 const Clutter = imports.gi.Clutter;
+const Config = imports.misc.config;
 const Lang = imports.lang;
 const Main = imports.ui.main;
 const Mainloop = imports.mainloop;
@@ -39,6 +40,21 @@ class Extension {
         this._pixel.set_easing_duration(this._delay * 1000);
         this._pixel.set_easing_mode(Clutter.AnimationMode.LINEAR);
 
+        // extend pixel with a new method that uses the correct clutter animation for the version of GNOME Shell in use
+        const shellVersion = Number.parseFloat(Config.PACKAGE_VERSION);
+        if (shellVersion < 3.38) {
+            this._pixel._setNewX = function(newX) {
+                this.set_x(newX)
+            }
+        }
+        else { // 3.38 or later
+            this._pixel._setNewX = function(newX) {
+                this.ease({
+                    x: newX
+                });
+            }
+        }
+
         Main.layoutManager.addChrome(this._pixel, {
             affectsInputRegion: true,
             trackFullscreen: true,
@@ -68,9 +84,7 @@ class Extension {
         const newX = (this._goLeft) ? 0 : this._monitor.width - this._size;
 
         if (this._pixel !== null) {
-            this._pixel.ease({
-                x: newX
-            });
+            this._pixel._setNewX(newX);
             this._goLeft = !this._goLeft;
             this._timeout = Mainloop.timeout_add_seconds(this._delay, Lang.bind(this, this._changeDirection));
         }
