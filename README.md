@@ -10,6 +10,9 @@ Bugs that can be worked around by Wandering Pixel:
 
 I've never written a GNOME Shell extension before and really just fumbled through this. PRs to improve it are welcome!
 
+## Development Status
+Per Daniel van Vugt, [All of the bugs that wandering-pixel aimed to work around were fixed in GNOME 40, and then fixed in update 3.38.4](https://bugs.launchpad.net/ubuntu/+source/gnome-shell/+bug/1938352/comments/7). In order to support GNOME 42, changes are required that break releases prior to 3.36. Since Wandering Pixel is a workaround for bugs in older versions of GNOME, new releases will not be created that break older versions. I've made a branch for GNOME 42+ that people can use if they find Wandering Pixel useful on newer versions of GNOME. Or, better yet, open an issue and I'll reconsider making new releases again.
+
 ## Installation
 The recommended installation method is to install via the official [GNOME Extension page](https://extensions.gnome.org/extension/4028/wandering-pixel/).
 
