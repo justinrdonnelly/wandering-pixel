@@ -1,11 +1,8 @@
 'use strict';
 
-const Clutter = imports.gi.Clutter;
 const Config = imports.misc.config;
-const Lang = imports.lang;
 const Main = imports.ui.main;
-const Mainloop = imports.mainloop;
-const St = imports.gi.St;
+const {Clutter, GLib, GObject, St} = imports.gi;
 
 class Extension {
     //// Public methods ////
@@ -61,7 +58,7 @@ class Extension {
         });
 
         // if we don't wait, for some reason the first call to _changeDirection doesn't seem to respect duration and the pixel won't move for the entire first iteration
-        this._timeout = Mainloop.timeout_add_seconds(1, Lang.bind(this, this._changeDirection));
+        this._timeout = GLib.timeout_add_seconds(GLib.G_PRIORITY_DEFAULT, 1, this._changeDirection.bind(this));
         //log("exiting enable");
     }
 
@@ -69,7 +66,7 @@ class Extension {
     disable() {
         //log("entering disable");
         if (this._timeout !== null) {
-            Mainloop.source_remove(this._timeout);
+            GLib.source_remove(this._timeout);
             this._timeout = null;
         }
         Main.layoutManager.removeChrome(this._pixel);
@@ -86,7 +83,7 @@ class Extension {
         if (this._pixel !== null) {
             this._pixel._setNewX(newX);
             this._goLeft = !this._goLeft;
-            this._timeout = Mainloop.timeout_add_seconds(this._delay, Lang.bind(this, this._changeDirection));
+            this._timeout = GLib.timeout_add_seconds(GLib.G_PRIORITY_DEFAULT, this._delay, this._changeDirection.bind(this));
         }
         //log("exiting _changeDirection");
     }
